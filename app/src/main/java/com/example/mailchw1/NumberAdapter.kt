@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class NumberAdapter(val data: List<Int>, val listener: NumberViewHolder.IListener) :
+class NumberAdapter(private val data: List<Int>, private val listener: NumberViewHolder.IListener) :
     RecyclerView.Adapter<NumberViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NumberViewHolder {
         val inflater = LayoutInflater.from(parent.context)

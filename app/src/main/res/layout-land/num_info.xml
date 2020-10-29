@@ -20,6 +20,8 @@
                     android:id="@+id/num_inf_tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:singleLine="true"
                     android:textSize="@dimen/num_info_textV_textS" />
         </ScrollView>
     </LinearLayout>

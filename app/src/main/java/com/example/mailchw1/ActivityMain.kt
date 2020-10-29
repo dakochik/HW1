@@ -1,6 +1,8 @@
 package com.example.mailchw1
 
 import android.os.Bundle
+import android.os.PersistableBundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 
 class ActivityMain() : AppCompatActivity(), NumListFragment.IListener {
@@ -17,8 +19,10 @@ class ActivityMain() : AppCompatActivity(), NumListFragment.IListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
         if (savedInstanceState == null) {
-            val numbers = arrayListOf<Int>()
+            var numbers = arrayListOf<Int>()
+            Log.e("SAVE_STATE", "==null")
             numbers.addAll(FIRST_ARR_VAL..LAST_ARR_VAL)
             val bundle = Bundle().apply {
                 putIntegerArrayList(NUM_ARRAY, numbers)
@@ -29,6 +33,8 @@ class ActivityMain() : AppCompatActivity(), NumListFragment.IListener {
             }
             supportFragmentManager.beginTransaction().add(R.id.main_ll, fragment, TAG_NUMBERS_LIST)
                 .commitAllowingStateLoss()
+        } else {
+            Log.e("SAVE_STATE", "!=null ")
         }
 
     }
