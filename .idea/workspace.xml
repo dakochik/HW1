@@ -10,7 +10,17 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2eb9db22-ef82-4e3e-b634-c535ce827618" name="Default Changelist" comment="" />
+    <list default="true" id="2eb9db22-ef82-4e3e-b634-c535ce827618" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.github/workflows/assets/android_checkstyle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.github/workflows/assets/detekt.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.github/workflows/pr.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/checkstyle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/detekt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ktlint" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,7 +62,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$PROJECT_DIR$/../.android" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/все/hse-android-samples-main/hse-android-samples-main/lection03" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
   </component>
   <component name="RunManager">
@@ -168,10 +178,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="187" y="7" width="925" height="810" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1603920395195" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1603920219382">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1603992658807">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1603920219382" />
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1603992658807" />
     <state x="554" y="279" key="Github.CreatePullRequestDialog" timestamp="1603920538140">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
