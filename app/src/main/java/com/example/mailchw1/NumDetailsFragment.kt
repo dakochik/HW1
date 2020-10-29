@@ -14,22 +14,26 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentContainer
 
 class NumDetailsFragment : Fragment() {
-    companion object{
+    companion object {
         const val EXTRAS_NUMBER = "NUMBER"
 
-        fun newInstance(number : Int) : NumDetailsFragment{
+        fun newInstance(number: Int): NumDetailsFragment {
             val extras = Bundle().apply {
                 putInt(EXTRAS_NUMBER, number)
             }
 
-            val fragment = NumDetailsFragment().apply{
+            val fragment = NumDetailsFragment().apply {
                 arguments = extras
             }
-            return  fragment
+            return fragment
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return inflater.inflate(R.layout.num_info, container, false)
     }
 
@@ -37,10 +41,10 @@ class NumDetailsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val number = getNumber()
-        if(number != null){
+        if (number != null) {
             val tView = view.findViewById<TextView>(R.id.num_inf_tv)
             tView.text = number.toString()
-            if(number % 2 ==0)
+            if (number % 2 == 0)
                 tView.setTextColor(RED)
             else
                 tView.setTextColor(BLUE)
@@ -51,7 +55,7 @@ class NumDetailsFragment : Fragment() {
         }
     }
 
-    fun getNumber() : Int?{
+    fun getNumber(): Int? {
         return arguments?.getInt(EXTRAS_NUMBER)
     }
 }

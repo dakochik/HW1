@@ -20,17 +20,17 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class NumListFragment : Fragment() {
-    companion object{
+    companion object {
         const val NUM_ARRAY = "ARRAY"
         const val MIN_ARR_VAL = 1
         const val MAX_ARR_VAL = 100
     }
 
-    interface IListener{
-        fun onNumClicked(num : Int)
+    interface IListener {
+        fun onNumClicked(num: Int)
     }
 
-    protected var listener : IListener? = null
+    protected var listener: IListener? = null
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -40,31 +40,32 @@ class NumListFragment : Fragment() {
 
     var numbers = arrayListOf<Int>()
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
 
-        var sth = arguments?.getIntegerArrayList(NUM_ARRAY)
-        var savedNums = savedInstanceState?.getIntegerArrayList(NUM_ARRAY)
-        if(savedNums != null){
-            numbers = savedNums
-        }
-        else {
-            if (sth != null)
-                numbers  = sth
-            else
-                numbers.addAll(MIN_ARR_VAL..MAX_ARR_VAL)
+        val sth = arguments?.getIntegerArrayList(NUM_ARRAY)
+        val savedNums = savedInstanceState?.getIntegerArrayList(NUM_ARRAY)
+
+        when {
+            savedNums != null -> numbers = savedNums
+            sth != null -> numbers = sth
+            else -> numbers.addAll(MIN_ARR_VAL..MAX_ARR_VAL)
         }
 
         return inflater.inflate(R.layout.activity_with_fragment, container, false)
     }
 
-    override fun onViewCreated(view : View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         val numAdapter = NumberAdapter(numbers, NumberClickHandler())
 
         view.findViewById<Button>(R.id.btn_add_num).setOnClickListener {
             numbers.add(if (numbers.isEmpty()) 1 else (numbers.last() + 1))
-            numAdapter.notifyItemRangeChanged(0,numbers.size)
+            numAdapter.notifyItemRangeChanged(0, numbers.size)
         }
 
 
@@ -84,8 +85,9 @@ class NumListFragment : Fragment() {
         super.onViewStateRestored(savedInstanceState)
 
         var list = savedInstanceState?.getIntegerArrayList(NUM_ARRAY)
-        if(list != null)
+        if (list != null) {
             numbers = list
+        }
     }
 
     override fun onDetach() {
@@ -94,9 +96,9 @@ class NumListFragment : Fragment() {
         listener = null
     }
 
-    inner class NumberClickHandler : NumberViewHolder.IListener{
+    inner class NumberClickHandler : NumberViewHolder.IListener {
         override fun onNumClicked(pos: Int) {
-            val num  = numbers[pos]
+            val num = numbers[pos]
 
             listener?.onNumClicked(num)
         }
