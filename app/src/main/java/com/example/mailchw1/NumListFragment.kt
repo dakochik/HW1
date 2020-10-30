@@ -1,27 +1,21 @@
 package com.example.mailchw1
 
-import android.app.Activity
 import android.content.Context
-import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import java.util.*
-import kotlin.collections.ArrayList
 
 class NumListFragment : Fragment() {
     companion object {
         const val NUM_ARRAY = "ARRAY"
-        const val MIN_ARR_VAL = 1
-        const val MAX_ARR_VAL = 100
+        const val FIRST_ARR_VAL = 1
+        const val LAST_ARR_VAL = 100
     }
 
     interface IListener {
@@ -47,26 +41,19 @@ class NumListFragment : Fragment() {
         val sth = arguments?.getIntegerArrayList(NUM_ARRAY)
         val savedNums = savedInstanceState?.getIntegerArrayList(NUM_ARRAY)
 
-//        when {
-//            savedNums != null -> {
-//                numbers = savedNums; Log.e("SAVE_STATE", "got from bundle: "+numbers.size)
-//            }
-//            sth != null -> {
-//                numbers = sth
-//                Log.e("SAVE_STATE", "got from arguments: "+numbers.size)
-//            }
-//            else -> {numbers.addAll(MIN_ARR_VAL..MAX_ARR_VAL); Log.e("SAVE_STATE", "created: "+numbers.size)}
-//        }
-        if (savedNums != null) {
-            numbers = savedNums
-            Log.e("SAVE_STATE", "got from bundle: " + numbers.size)
-        } else {
-            if (sth != null) {
+        when {
+            savedNums != null -> {
+                numbers = savedNums; Log.e("SAVE_STATE", "got from bundle: " + numbers.size)
+            }
+            sth != null -> {
                 numbers = sth
                 Log.e("SAVE_STATE", "got from arguments: " + numbers.size)
-            } else {
-                numbers.addAll(MIN_ARR_VAL..MAX_ARR_VAL)
-                Log.e("SAVE_STATE", "created: " + numbers.size)
+            }
+            else -> {
+                numbers.addAll(FIRST_ARR_VAL..LAST_ARR_VAL); Log.e(
+                    "SAVE_STATE",
+                    "created: " + numbers.size
+                )
             }
         }
 
@@ -92,10 +79,10 @@ class NumListFragment : Fragment() {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        //if(numbers.isNotEmpty()) {
-        Log.e("SAVE_STATE", "we saved it: " + numbers.size)
-        outState.putIntegerArrayList(NUM_ARRAY, numbers)
-        //}
+        if (numbers.isNotEmpty()) {
+            Log.e("SAVE_STATE", "we saved it: " + numbers.size)
+            outState.putIntegerArrayList(NUM_ARRAY, numbers)
+        }
     }
 
     inner class NumberClickHandler : NumberViewHolder.IListener {
